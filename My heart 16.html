@@ -1,0 +1,2669 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Heart</title>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      font-family: 'Georgia', serif;
+      color: #2c2c2c;
+      text-align: center;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #800000;
+    }
+
+    .description {
+      font-size: 1.1em;
+      color: #5a5a5a;
+      margin-bottom: 30px;
+    }
+
+    audio {
+      margin: 15px auto;
+      width: 90%;
+      max-width: 500px;
+      display: block;
+    }
+
+    .img-container img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
+
+    .judul {
+      font-size: 1.6em;
+      margin-top: 30px;
+      font-weight: bold;
+      color: #6b0505;
+    }
+
+    .puisi {
+      font-size: 1.1em;
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 20px;
+      line-height: 1.8;
+      white-space: pre-line;
+      animation: fadeIn 2s ease-in-out;
+      color: #333;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .banner-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .banner-card {
+      width: 300px;
+      background-color: rgba(255,255,255,0.85);
+      border: 2px solid #d46a6a;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .banner-card img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #c43c3c;
+    }
+
+    .banner-card p {
+      margin: 10px 0;
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    .banner-card a.button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background-color: #ff6f91;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .banner-card a.button:hover {
+      background-color: #ff3e6c;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+  /* CSS LAMA */
+
+  .container {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  /* --- TAMBAHKAN DI SINI --- */
+  #login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #fad0c4, #fbc2eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .login-box {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .login-box h2 {
+    color: #c43c3c;
+    font-size: 1.3em;
+  }
+
+  .login-box input {
+    padding: 10px;
+    margin-top: 15px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+
+  .login-box button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .login-box button:hover {
+    background-color: #ff3e6c;
+  }
+
+  
+.mountain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.mountain-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: -1;
+}
+.mountain-layer.back {
+  z-index: -2;
+  opacity: 0.6;
+}
+.mountain-layer.front {
+  z-index: -1;
+}
+
+.sun::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,200,120,0.4) 0%, rgba(255,100,0,0) 70%);
+  z-index: -1;
+  filter: blur(20px);
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.mountain-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  pointer-events: none;
+  z-index: -1;
+}
+.mountain-layer.back {
+  z-index: -2;
+  opacity: 0.9;
+}
+.mountain-layer.front {
+  z-index: -1;
+  opacity: 1;
+}
+
+/* Cloud Styles */
+.cloud {
+  position: absolute;
+  background: #fff;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #e0e0e0 70%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(6px);
+  z-index: -0;
+  animation: floatCloud 30s linear infinite;
+}
+.cloud1 {
+  width: 200px;
+  height: 80px;
+  top: 60px;
+  left: 30%;
+  animation-delay: 0s;
+}
+.cloud2 {
+  width: 160px;
+  height: 60px;
+  top: 100px;
+  left: 60%;
+  animation-delay: 10s;
+}
+
+@keyframes floatCloud {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Gunung dengan tekstur halus */
+.mountain-layer.front path {
+  fill: url(#texturedFront);
+}
+.mountain-layer.back path {
+  fill: url(#texturedBack);
+}
+
+/* Awan lembut & smooth */
+.cloud {
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #dfe6e9 70%, transparent 100%);
+  transition: opacity 1s ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+/* Burung Terbang */
+.bird-group {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 100vw;
+  height: 100px;
+  pointer-events: none;
+  z-index: 1;
+  animation: flyBirds 20s linear infinite;
+}
+.bird {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+  transform: rotate(45deg);
+  position: absolute;
+  animation: flap 1s infinite ease-in-out;
+}
+.bird1 { top: 20px; left: 10%; transform: scale(1) rotate(45deg); }
+.bird2 { top: 40px; left: 25%; transform: scale(1.2) rotate(45deg); }
+.bird3 { top: 10px; left: 40%; transform: scale(0.9) rotate(45deg); }
+
+@keyframes flyBirds {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(110vw); }
+}
+@keyframes flap {
+  0%, 100% { transform: rotate(45deg); }
+  50% { transform: rotate(60deg); }
+}
+
+/* Smooth transition untuk perubahan warna langit */
+.sky {
+  transition: background 5s ease-in-out;
+  animation: skyShiftSmooth 20s ease-in-out infinite alternate;
+}
+
+@keyframes skyShiftSmooth {
+  0% {
+    background: linear-gradient(to top, #2c3e50, #f39c12, #f1c40f);
+  }
+  50% {
+    background: linear-gradient(to top, #e67e22, #f5b041, #f8c471);
+  }
+  100% {
+    background: linear-gradient(to top, #1c2833, #7f8c8d, #d35400);
+  }
+}
+
+/* Matahari berubah warna perlahan */
+.sun {
+  animation: sunRiseSetSmooth 20s ease-in-out infinite;
+  transition: background 3s ease-in-out;
+}
+
+@keyframes sunRiseSetSmooth {
+  0% {
+    top: -200px;
+    opacity: 0;
+    background: radial-gradient(circle, #fceabb 0%, #f8b500 60%, transparent 80%);
+  }
+  25% {
+    top: 15%;
+    opacity: 1;
+    background: radial-gradient(circle, #fbc531 0%, #f39c12 60%, transparent 80%);
+  }
+  50% {
+    top: 50%;
+    opacity: 1;
+    background: radial-gradient(circle, #fd9644 0%, #e15f41 60%, transparent 80%);
+  }
+  75% {
+    top: 85%;
+    opacity: 0.6;
+    background: radial-gradient(circle, #c44569 0%, #2c3e50 60%, transparent 80%);
+  }
+  100% {
+    top: -200px;
+    opacity: 0;
+    background: radial-gradient(circle, #fceabb 0%, #f8b500 60%, transparent 80%);
+  }
+}
+
+/* Lembutkan gradasi langit lebih lama */
+@keyframes skyShiftSmooth {
+  0% {
+    background: linear-gradient(to top, #1B2631, #F39C12, #FDEBD0);
+  }
+  25% {
+    background: linear-gradient(to top, #2E4053, #F8C471, #FDEBD0);
+  }
+  50% {
+    background: linear-gradient(to top, #34495E, #F5B041, #F9E79F);
+  }
+  75% {
+    background: linear-gradient(to top, #1C2833, #D98880, #FDEBD0);
+  }
+  100% {
+    background: linear-gradient(to top, #17202A, #7F8C8D, #D35400);
+  }
+}
+
+/* Matahari smooth gradasi */
+@keyframes sunRiseSetSmooth {
+  0% {
+    top: -200px;
+    opacity: 0;
+    background: radial-gradient(circle, #fff0b2 0%, #f9ca24 60%, transparent 80%);
+  }
+  20% {
+    top: 10%;
+    opacity: 0.8;
+    background: radial-gradient(circle, #ffeaa7 0%, #f6b93b 60%, transparent 80%);
+  }
+  40% {
+    top: 40%;
+    opacity: 1;
+    background: radial-gradient(circle, #f9ca24 0%, #e58e26 60%, transparent 80%);
+  }
+  60% {
+    top: 70%;
+    opacity: 1;
+    background: radial-gradient(circle, #e17055 0%, #d63031 60%, transparent 80%);
+  }
+  80% {
+    top: 100%;
+    opacity: 0.6;
+    background: radial-gradient(circle, #b33939 0%, #2c3e50 60%, transparent 80%);
+  }
+  100% {
+    top: -200px;
+    opacity: 0;
+    background: radial-gradient(circle, #fff0b2 0%, #f9ca24 60%, transparent 80%);
+  }
+}
+
+/* Warna teks berubah mengikuti waktu senja */
+h1, .description, .judul {
+  animation: colorShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+@keyframes colorShift {
+  0%   { color: #f9d423; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); } /* pagi terang */
+  25%  { color: #f39c12; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); } /* naik */
+  50%  { color: #e67e22; text-shadow: 2px 2px 5px rgba(0,0,0,0.4); } /* tengah */
+  75%  { color: #d35400; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); } /* hampir turun */
+  100% { color: #ecf0f1; text-shadow: 2px 2px 7px rgba(0,0,0,0.8); } /* malam terang keputihan */
+}
+
+/* Warna teks adaptif terhadap terang-gelapnya langit */
+h1, .description, .judul {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+@keyframes textContrastShift {
+  0%   { color: #111; text-shadow: 2px 2px 5px rgba(255,255,255,0.6); }
+  25%  { color: #222; text-shadow: 2px 2px 6px rgba(255,255,255,0.5); }
+  50%  { color: #fdfdfd; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+  75%  { color: #fff; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
+  100% { color: #111; text-shadow: 2px 2px 5px rgba(255,255,255,0.6); }
+}
+
+/* Efek lampu kedip */
+@keyframes flickerAnimation {
+  0%   { background-color: #000; }
+  50%  { background-color: #222; }
+  100% { background-color: #000; }
+}
+
+body.flicker {
+  animation: flickerAnimation 0.2s infinite;
+}
+
+/* Warna teks otomatis berubah untuk Kenangan & Game */
+.slideshow-title h3,
+#halaman2 h1,
+#game2 h2,
+#game3 h2,
+#popup-win {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+/* Ucapan bawah jawaban Kenangan Ke-2 ikut transisi matahari */
+#game2 .quiz-result {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+/* Warna teks hasil quiz juga ikut berubah berdasarkan waktu */
+.quiz-result {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+/* Semua elemen hasil jawaban kuis ikut warna kontras otomatis */
+#game1 .quiz-result,
+#game2 .quiz-result,
+#game3 .quiz-result,
+#game4 .quiz-result,
+#game5 .quiz-result {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+}
+
+/* Pertegas semua hasil kuis agar adaptif terang-gelap */
+.quiz-result,
+#game1 .quiz-result,
+#game2 .quiz-result,
+#game3 .quiz-result,
+#game4 .quiz-result,
+#game5 .quiz-result,
+#game2 #hasilTekaTeki {
+  animation: textContrastShift 20s ease-in-out infinite;
+  transition: color 1s ease-in-out;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+</style>
+<style>
+  .photo-frame {
+    transition: border 0.6s ease-in-out;
+  }
+  .photo-frame img {
+    transition: border 0.6s ease-in-out, transform 0.3s ease;
+  }
+  .photo-frame:hover {
+    border-color: #ff6f91 !important;
+  }
+  .photo-frame img:hover {
+    transform: scale(1.05);
+    border-color: #ff6f91;
+  }
+
+  .game-section {
+    transition: box-shadow 0.5s ease, border 0.5s ease;
+    border-radius: 15px;
+    border: 2px solid #ff9a9e;
+  }
+
+  .game-section:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: #ff6f91;
+  }
+</style>
+<style>
+  /* Selengkapnya 1 - gaya gambar & border animasi */
+  #halaman1 .content {
+    position: relative;
+    padding: 25px;
+    margin-top: 20px;
+    border: 3px dashed #ff6f91;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.95);
+    animation: fadeIn 1.5s ease-in-out, borderPulse 3s infinite ease-in-out;
+  }
+
+  #halaman1 img {
+    display: block;
+    margin: 20px auto;
+    max-width: 240px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  @keyframes borderPulse {
+    0% { box-shadow: 0 0 0 2px #fbc2eb; }
+    50% { box-shadow: 0 0 0 8px #ff6f91; }
+    100% { box-shadow: 0 0 0 2px #fbc2eb; }
+  }
+
+  /* Selengkapnya 2 - gaya marketplace */
+  #halaman2 .photo-frame {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #fca3cc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  #halaman2 .photo-frame:hover {
+    border-color: #ff6f91;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  #halaman2 .photo-frame img {
+    border-radius: 12px;
+    border: 2px solid #ffe3f0;
+    transition: transform 0.3s ease;
+  }
+
+  #halaman2 .photo-frame img:hover {
+    transform: scale(1.05);
+  }
+
+  #halaman2 .photo-frame p {
+    font-size: 0.9em;
+    margin-top: 8px;
+    color: #444;
+  }
+
+  #halaman2 .back-button {
+    margin-top: 40px;
+    padding: 12px 24px;
+    font-size: 1em;
+    background-color: #ff9a9e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid #f06292;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  #halaman2 .back-button:hover {
+    background-color: #f06292;
+    transform: scale(1.05);
+  }
+
+  .back-button[onclick] {
+    display: inline-block;
+  }
+</style>
+<style>
+  .game-section {
+    border: 2px dashed #f06292;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 15px;
+    position: relative;
+  }
+
+  .lives {
+    font-size: 1.3em;
+    color: #ff4f70;
+    margin-bottom: 10px;
+  }
+</style>
+<style>
+  #halaman1 .back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ff6f91;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid #ff9a9e;
+    animation: pulseBtn 2s infinite;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  #halaman1 .back-button:hover {
+    background-color: #ff3e6c;
+    transform: scale(1.05);
+  }
+
+  @keyframes pulseBtn {
+    0% { box-shadow: 0 0 0 0 rgba(255,111,145, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255,111,145, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,111,145, 0); }
+  }
+</style>
+<style>
+  .retry-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff9a9e;
+    color: white;
+    border: 2px solid #ff6f91;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: pulseBtn 2s infinite;
+    transition: all 0.3s ease;
+  }
+
+  .retry-button:hover {
+    background-color: #ff6f91;
+    transform: scale(1.05);
+  }
+</style>
+<style>
+  .options button {
+    animation: popIn 0.4s ease;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+<style>
+  #halaman2 .back-button {
+    background: linear-gradient(135deg, #fda085, #f6d365);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 26px;
+    font-size: 1em;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 105, 135, 0.3);
+    transition: all 0.3s ease;
+    animation: glamPulse 2s infinite;
+  }
+
+  #halaman2 .back-button:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    box-shadow: 0 6px 20px rgba(255, 105, 135, 0.5);
+  }
+
+  @keyframes glamPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 105, 135, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(255, 105, 135, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 105, 135, 0); }
+  }
+</style>
+<style>
+  .note-warning {
+    margin: 50px auto 30px;
+    max-width: 800px;
+    padding: 20px 25px;
+    background: #fff7f9;
+    border-left: 6px solid #f06292;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 0.95em;
+    color: #4a4a4a;
+    animation: fadeInUp 1.2s ease-in-out;
+  }
+
+  .note-warning h4 {
+    margin-top: 0;
+    color: #c2185b;
+  }
+
+  .note-warning ol {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .note-warning li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+</style>
+<style>
+  .lives.animated {
+    animation: popHeart 0.4s ease;
+  }
+
+  @keyframes popHeart {
+    0% { transform: scale(1.2); color: #f06292; }
+    100% { transform: scale(1); color: #ff4f70; }
+  }
+
+  @keyframes floatHearts {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-150px) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .heart-confetti {
+    position: fixed;
+    bottom: 40px;
+    font-size: 24px;
+    animation: floatHearts 1.5s ease-in forwards;
+    z-index: 9999;
+    pointer-events: none;
+  }
+</style>
+<style>
+  .kenangan-quiz {
+    margin-top: 40px;
+    padding: 25px;
+    background: #fff7f9;
+    border-left: 5px solid #f06292;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease;
+  }
+
+  .kenangan-quiz label {
+    font-weight: bold;
+    color: #c2185b;
+  }
+
+  .kenangan-quiz input {
+    margin: 10px 0 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+
+  .kenangan-quiz button {
+    padding: 10px 18px;
+    background-color: #ff6f91;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .kenangan-quiz button:hover {
+    background-color: #ff3e6c;
+  }
+
+  .quiz-result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #6b0505;
+  }
+
+  .locked-button {
+    background-color: #ccc !important;
+    border: 2px dashed #aaa !important;
+    pointer-events: none;
+    position: relative;
+  }
+
+  .locked-button::after {
+    content: "🔒";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 1.2em;
+  }
+</style>
+<style>
+  .terimakasih-box {
+    margin-top: 25px;
+    background: #fff0f7;
+    border-left: 6px solid #f06292;
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: #6b0f1a;
+    animation: fadeInBox 0.8s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
+  }
+
+  @keyframes fadeInBox {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<style>
+  @keyframes softFlicker {
+    0%, 15%, 35%, 55%, 75% {
+      background: black;
+    }
+    10%, 30%, 50%, 70%, 90%, 100% {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+</style>
+<style>
+  @keyframes slideFromTop {
+    0% { transform: translate(-50%, -100%); opacity: 0; }
+    100% { transform: translate(-50%, -50%); opacity: 1; }
+  }
+
+  #secret-section {
+    animation: slideFromTop 1.2s ease-out !important;
+  }
+
+  .typewriter h2 {
+    overflow: hidden;
+    border-right: .15em solid #f06292;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .05em;
+    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #f06292 }
+  }
+</style>
+<style>
+  @keyframes unfoldScroll {
+    0% {
+      transform: scaleY(0.1) rotateX(-90deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleY(1) rotateX(0);
+      opacity: 1;
+    }
+  }
+</style>
+<style>
+  @keyframes unfoldScroll {
+    0% {
+      transform: scaleY(0.1) rotateX(-90deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleY(1) rotateX(0);
+      opacity: 1;
+    }
+  }
+
+  #love-letter {
+    animation: unfoldScroll 2s ease forwards;
+    transform-origin: top center;
+  }
+</style>
+<style>
+  @keyframes shakeEarth {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    25% { transform: translate(-49%, -51%) rotate(1deg); }
+    50% { transform: translate(-51%, -49%) rotate(-1deg); }
+    75% { transform: translate(-50%, -50%) rotate(1deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+
+  @keyframes slideDownLetter {
+    0% { transform: translate(-50%, -200%); opacity: 0; }
+    100% { transform: translate(-50%, -50%); opacity: 1; }
+  }
+
+  #love-letter {
+    animation: slideDownLetter 3s ease forwards !important;
+    transform-origin: top center;
+  }
+
+  .fade-out {
+    animation: fadeOutRemove 2s ease forwards;
+  }
+
+  @keyframes fadeOutRemove {
+    0% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+  }
+</style>
+<style>
+  .shake-on-start {
+    animation: shakeEarth 0.8s ease, slideFromTop 1.2s ease-out;
+  }
+
+  @keyframes shakeEarth {
+    0% { transform: translate(-50%, -52%) rotate(0); }
+    25% { transform: translate(-50%, -48%) rotate(1deg); }
+    50% { transform: translate(-50%, -51%) rotate(-1deg); }
+    75% { transform: translate(-50%, -49%) rotate(1deg); }
+    100% { transform: translate(-50%, -50%) rotate(0); }
+  }
+
+  @keyframes slideFromTop {
+    0% { transform: translate(-50%, -100%); opacity: 0; }
+    100% { transform: translate(-50%, -50%); opacity: 1; }
+  }
+</style>
+<style>
+  @keyframes fadeInBox {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+</style>
+<style>
+  @keyframes fadeInReward {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+</style>
+<style>
+  @keyframes fadeInSmall {
+    from { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+</style>
+<style>
+  @keyframes slideDownFadeCenter {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -70%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
+<style>
+#verified-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: 2px solid #00aced;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display: none;
+}
+
+#verified-badge img {
+  width: 28px;
+  height: 28px;
+}
+</style>
+<style>
+/* Smooth transitions for common interactive elements */
+#main-content, #halaman1, #halaman2, #verified-badge, #reward-box,
+#kenangan1-reward, #popup-win, #popup-lose, #love-letter,
+#secret-section, #secret-overlay, #thanks-after-kenangan1 {
+  transition: all 0.6s ease-in-out;
+}
+
+button, .button, input, .photo-frame, .game-section {
+  transition: all 0.3s ease-in-out;
+}
+
+#login-screen {
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+input:focus, button:hover, .button:hover {
+  transform: scale(1.02);
+}
+</style>
+<style>
+/* Slideshow bergaya persegi melengkung dan animasi halus */
+#photo-slideshow {
+  max-width: 850px;
+  border-radius: 28px;
+  padding: 28px;
+  margin: 50px auto 30px;
+  padding: 20px;
+  max-width: 720px;
+  border-radius: 20px;
+  background: #fff0f7;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 1.2s ease;
+}
+
+#photo-slideshow h3 {
+  margin-bottom: 15px;
+  color: #c2185b;
+  font-size: 1.2em;
+}
+
+.slides-container {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: 300%;
+}
+
+.slide {
+  flex: 0 0 100%;
+  max-height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  height: 360px;
+  max-height: none;
+  border-radius: 18px;
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Tombol navigasi */
+#photo-slideshow .nav-dots {
+  text-align: center;
+  margin-top: 12px;
+}
+
+#photo-slideshow .nav-dots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #d81b60;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#photo-slideshow .nav-dots span.active {
+  background: #ff6f91;
+}
+</style><style>
+.slideshow-title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.3em;
+  color: #c2185b;
+  font-weight: bold;
+  animation: fadeInUp 1s ease;
+}
+</style><style>
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+</style><style>
+#photo-slideshow .slide {
+  animation: fadeInAuto 1s ease-in-out;
+}
+
+@keyframes fadeInAuto {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+</style></head>
+<body>
+<div class="sunset-background">
+<div class="sky"></div>
+<div class="sun"></div>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<svg class="mountain-layer back" preserveaspectratio="none" viewbox="0 0 1440 320">
+<defs>
+<pattern height="10" id="texturedBack" patternunits="userSpaceOnUse" width="10">
+<rect fill="#5D6D7E" height="10" width="10"></rect>
+<circle cx="5" cy="5" fill="#34495E" r="1"></circle>
+</pattern>
+</defs>
+<defs>
+<lineargradient id="mountainGradBack" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#5D6D7E"></stop>
+<stop offset="100%" stop-color="#34495E"></stop>
+</lineargradient>
+</defs>
+<path d="M0,160L60,165.3C120,171,240,181,360,192C480,203,600,213,720,208C840,203,960,181,1080,176C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" fill="url(#mountainGradBack)"></path>
+</svg>
+<svg class="mountain-layer front" preserveaspectratio="none" viewbox="0 0 1440 320">
+<defs>
+<pattern height="8" id="texturedFront" patternunits="userSpaceOnUse" width="8">
+<rect fill="#2c3e50" height="8" width="8"></rect>
+<path d="M0,0 L8,8 M8,0 L0,8" stroke="#1c2833" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<defs>
+<lineargradient id="mountainGradFront" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2c3e50"></stop>
+<stop offset="100%" stop-color="#1C2833"></stop>
+</lineargradient>
+</defs>
+<path d="M0,224L48,197.3C96,171,192,117,288,122.7C384,128,480,192,576,224C672,256,768,256,864,229.3C960,203,1056,149,1152,122.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="url(#mountainGradFront)"></path>
+</svg>
+<div class="bird-group">
+<div class="bird bird1"></div>
+<div class="bird bird2"></div>
+<div class="bird bird3"></div>
+</div>
+</div>
+<style>
+  .sunset-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #2c3e50, #f39c12, #f1c40f);
+    animation: skyShift 15s ease-in-out infinite alternate;
+    z-index: -2;
+  }
+
+  .sun {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    margin-left: -80px;
+    background: radial-gradient(circle, #f9d423 0%, #ff4e50 60%, transparent 80%);
+    border-radius: 50%;
+    animation: sunSet 15s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+
+  @keyframes skyShift {
+    0% {
+      background: linear-gradient(to top, #2c3e50, #f39c12, #f1c40f);
+    }
+    100% {
+      background: linear-gradient(to top, #1c2833, #7f8c8d, #d35400);
+    }
+  }
+
+  @keyframes sunSet {
+    0% {
+      bottom: 10%;
+    }
+    100% {
+      bottom: -100px;
+    }
+  }
+
+  body {
+    background: none !important;
+  }
+</style>
+<div id="kenangan1-return-overlay" style="display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.3); backdrop-filter:blur(3px); z-index:10000;"></div>
+<style>
+  #kenangan1-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+  }
+
+  #kenangan1-reward.show {
+    display: block !important;
+    animation: popupFade 0.8s ease;
+  }
+
+  @keyframes popupFade {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+</style>
+<div id="kenangan1-overlay"></div>
+<style>
+  #warning-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    z-index: 9998;
+  }
+
+  #warning-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff0f5;
+    border-left: 6px solid #f06292;
+    padding: 20px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: fadeInPopup 0.6s ease-out;
+    font-size: 0.95em;
+    max-width: 90%;
+    width: 320px;
+  }
+
+  #warning-popup .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #c2185b;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @keyframes fadeInPopup {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  #warning-popup ol {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  #warning-popup li {
+    margin-bottom: 8px;
+  }
+</style>
+<div id="warning-overlay"></div>
+<div id="warning-popup">
+<button class="close-btn" onclick="closeWarning()">x</button>
+<strong>⚠️ Peringatan:</strong>
+<ol>
+<li>Jika mau menyalakan musik maka klik satu kali, jika error tolong klik sampai bisa :)</li>
+<li>Jika ingin dengar audio atas, matikan musik dulu sayang.</li>
+<li>Jangan rusak atau ubah isi halaman ini ya sayang 💕</li>
+</ol>
+</div>
+<script>
+function startFlickerEffectAndAudio() {
+  document.body.classList.add("flicker");
+  const audio = document.getElementById("secretAudio");
+  if (audio) {
+    audio.volume = 0.5;
+    audio.play().catch(e => console.warn("Audio play blocked:", e));
+  }
+  setTimeout(() => {
+    stopAudioWithFade();
+    showSecretEnding();
+  }, 4000); // waktu flicker
+}
+
+function stopAudioWithFade() {
+  const audio = document.getElementById("secretAudio");
+  if (!audio) return;
+  const fadeInterval = setInterval(() => {
+    if (audio.volume > 0.05) {
+      audio.volume -= 0.05;
+    } else {
+      audio.volume = 0;
+      audio.pause();
+      clearInterval(fadeInterval);
+    }
+  }, 200);
+}
+
+function showSecretEnding() {
+  document.body.classList.remove("flicker");
+  alert("💌 Ini adalah akhir rahasia... (isi love letter bisa kamu ganti di sini)");
+}
+</script>
+<audio autoplay="" id="bg-music" loop="" style="display:none;">
+<source src="https://raw.githubusercontent.com/danang2501/v/main/My%20Heart%20-%20Acha%20Septriasa%20%26%20Irwansyah%20(Instrument)%20nolif.mp3" type="audio/mpeg"/>
+  Your browser does not support the audio element.
+</audio>
+<div id="login-screen">
+<div class="login-box">
+<h2>Masukkan Kode nomer belakang pada instagram yang kamu ikuti sebelumnya,hilangakn titiknya dan ambil 2 angka terakhir dari tahun ini💌</h2>
+<input id="codeInput" placeholder="Kode Akses" type="password"/>
+<button onclick="verifyCode()">Masuk</button>
+<p id="errorMsg" style="color:red; display:none;">Kode salah sayang.Coba lagi ya-.</p>
+</div>
+</div>
+<div class="container">
+<body>
+<div class="container" id="main-content" style="display:none;">
+<div id="verified-badge">
+<img alt="Verified" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"/>
+</div>
+<h1>Halo aku sandyakala💖</h1>
+    ...
+    <p class="description">Dengarkan dengan sandyakala inindengan hati, dan lihat bagaimana kamu merindukan ku...</p>
+<audio controls="">
+<source src="https://raw.githubusercontent.com/danang2501/ty/main/Kata%20pembuka.mp3.mp4" type="audio/mp4"/>
+</audio>
+<audio controls="">
+<source src="https://raw.githubusercontent.com/danang2501/nj/main/lagu%20untuk%20mu.mp3.mp4" type="audio/mp4"/>
+</audio>
+<div class="img-container">
+<img alt="Senja Indah" src="https://raw.githubusercontent.com/danang2501/wq/main/pngtree-two-people-are-holding-hands-in-the-water-at-sunset-picture-image_2493667.jpg"/>
+</div>
+<div class="judul">Sandyaka dan Bimantara</div>
+<div class="puisi">
+Di ujung hari, kala mentari beringsut pelan,  
+Sandyakala berselendang jingga menatap angkasa yang tenang.  
+Di sana, Bimantara menjawab tanpa suara,  
+Melukis langit dengan bisu yang penuh makna.  
+
+Kau datang bagai cakrawala yang menjembatani langit dan bumi,  
+Saat aku, senjamu, tak lagi tahu arah cahaya pergi.  
+Namun di matamu, aku temukan pulang,  
+Dalam genggamanmu, waktu tak lagi bimbang.  
+
+Enam bulan, bukan sekadar putaran waktu,  
+Tapi pertemuan langit yang jatuh cinta pada warna senjaku.  
+Kita—dua semesta yang berbeda,  
+Namun saling mengerti dalam diam yang bicara.
+    </div>
+<div class="instagram-section sandyakala-bg">
+<h3 class="sosmed-title">Temui Aku ya sanyang 💌</h3>
+<div class="sosmed-links">
+<a class="sosmed-btn" href="https://www.instagram.com/surya.wardhana.391?igsh=MXEwc3cxNm8xbmdyaQ==" target="_blank">
+<img alt="IG" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"/>
+      Instagram
+    </a>
+<a class="sosmed-btn" href="https://wa.me/6281234567890" target="_blank">
+<img alt="WA" src="https://cdn-icons-png.flaticon.com/512/733/733585.png"/>
+      WhatsApp 💬
+    </a>
+</div>
+</div>
+<style>
+  .sandyakala-bg {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    animation: fadeInBg 2s ease-in-out;
+    margin-top: 60px;
+  }
+
+  @keyframes fadeInBg {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .sosmed-title {
+    font-size: 1.5em;
+    color: #6a1b9a;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
+    animation: pulseTitle 2s infinite ease-in-out;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  @keyframes pulseTitle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .sosmed-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .sosmed-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff6f91, #ff9472);
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.5s;
+    animation: floatBtn 3s infinite ease-in-out;
+  }
+
+  .sosmed-btn img {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+  }
+
+  .sosmed-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #ff3e6c, #ff9e80);
+  }
+
+  @keyframes floatBtn {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+</style>
+<!-- Tambahan langsung setelah elemen puisi -->
+<div class="banner-grid">
+<div class="banner-card animate-border">
+<img alt="Kenangan 1" src="https://raw.githubusercontent.com/danang2501/po/main/be982c02-e507-448d-a92c-1392c3069844.jpeg"/>
+<p>Detik pertama saat tawa kita menyatu dalam senja yang diam.</p>
+<a class="button" href="Halaman1.html">Kenangan 1</a>
+</div>
+<div class="banner-card animate-border">
+<img alt="Kenangan 2" src="https://raw.githubusercontent.com/danang2501/po/main/1ce6d26b-67f5-47ea-9e33-4be7ee908c65.jpeg"/>
+<p>Langkah pertama kita menuju cakrawala1.</p>
+<a class="button locked-button" href="#" onclick="lockedMessage(); return false;">Kenangan 1</a>
+</div>
+</div>
+<!-- Tambahkan bagian ini sebelum 
+<script>
+  function showKenangan1RewardManual() {
+    const reward = document.getElementById("kenangan1-reward");
+    const overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+
+</body> -->
+<div class="slideshow-title"><h3>Tentang kita 📸</h3></div><div id="photo-slideshow" style="max-width: 720px; margin: 50px auto; padding: 20px; border-radius: 20px; background: #fff0f5; box-shadow: 0 8px 25px rgba(0,0,0,0.15);display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div class="slides-container" id="slides-container" style="display: flex; transition: transform 0.6s ease-in-out; width: 300%;"><div class="slide" style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center;"><div class="photo-frame" style="width: 320px; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; animation: fadeSlide 1s ease;"><img alt="Foto 1" src="https://raw.githubusercontent.com/danang2501/po/main/75903832-60c3-4f73-9ed5-561615f40b9d.jpeg" style="width:100%; height:auto; max-height:300px; object-fit:cover; border-radius:14px; border:2px solid #ffe3f0;"/><p>Foto 1</p></div></div><div class="slide" style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center;"><div class="photo-frame" style="width: 320px; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; animation: fadeSlide 1s ease;"><img alt="Foto 2" src="https://raw.githubusercontent.com/danang2501/po/main/gambar%205.PNG" style="width:100%; height:auto; max-height:300px; object-fit:cover; border-radius:14px; border:2px solid #ffe3f0;"/><p>Foto 2</p></div></div><div class="slide" style="flex: 0 0 100%; display: flex; justify-content: center; align-items: center;"><div class="photo-frame" style="width: 320px; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; animation: fadeSlide 1s ease;"><img alt="Foto 3" src="https://raw.githubusercontent.com/danang2501/po/main/c361ffda-72ef-4a0d-ada8-cc0cedc27660.jpeg" style="width:100%; height:auto; max-height:300px; object-fit:cover; border-radius:14px; border:2px solid #ffe3f0;"/><p>Foto 3</p></div></div></div>
+<div class="nav-dots" id="slideshow-dots"><span class="active" onclick="goToSlide(0)"></span><span onclick="goToSlide(1)"></span><span onclick="goToSlide(2)"></span></div>
+</div><div class="note-warning">
+<h4>⚠️ Catatan Penting:</h4>
+<ol>
+<li>Jika kamu mau mendengarkan musik, bisa pencet logo 🎵 di kanan bawah.</li>
+<li>Jika kamu mau mendengarkan audio di atas, <strong>tolong matikan musiknya terlebih dahulu</strong>.</li>
+<li><u>Jangan melakukan perubahan atau kerusakan pada web ini ya 🙏</u>.</li>
+</ol>
+</div>
+<style>
+  .animate-border {
+    animation: borderPulse 2.5s infinite ease-in-out;
+  }
+
+  @keyframes borderPulse {
+    0% {
+      box-shadow: 0 0 0 2px #ff9a9e;
+    }
+    50% {
+      box-shadow: 0 0 0 6px #fad0c4;
+    }
+    100% {
+      box-shadow: 0 0 0 2px #ff9a9e;
+    }
+  }
+
+  .instagram-section {
+    margin-top: 60px;
+    padding: 30px;
+    background: rgba(255,255,255,0.8);
+    border-top: 2px dashed #ff6f91;
+    animation: fadeInUp 1.5s ease;
+  }
+
+  .instagram-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    color: #c43c3c;
+  }
+
+  .instagram-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .ig-link {
+    padding: 10px 20px;
+    background: #ff6f91;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    animation: pulseFade 2s infinite;
+  }
+
+  .ig-link:hover {
+    background: #ff3e6c;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseFade {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+</style>
+<script>
+  function verifyCode() {
+  const input = document.getElementById("codeInput").value;
+  const error = document.getElementById("errorMsg");
+
+  if (input === "2225") {
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    document.getElementById("verified-badge").style.display = "block";
+
+    // Tampilkan peringatan
+    document.getElementById("warning-overlay").style.display = "block";
+    document.getElementById("warning-popup").style.display = "block";
+  }
+
+  else { error.style.display = "block"; }
+}
+</script>
+</div>
+<script>
+  function showKenangan1RewardManual() {
+    const reward = document.getElementById("kenangan1-reward");
+    const overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+</body>
+</div><div id="halaman1" style="display:none;"><body>
+<div class="container">
+<h1>Kenangan di Bawah Senja</h1>
+<p class="subtitle">Di antara jingga dan diam, ada kita</p>
+<div class="content"><img alt="Kenangan Senja" src="https://raw.githubusercontent.com/danang2501/po/main/fdae0c07-ebd6-4096-8a44-dcfbd5ff83c4.jpeg"/>
+<p>
+        Senja hari itu tidak sekadar indah,  
+        tapi menjadi saksi bisu ketika matamu pertama kali menyapa hatiku.  
+        Tatapanmu pelan, namun cukup untuk menenangkan wajah ku yang tegang ini
+        Kita bukan hanya dua insan yang bertemu,  
+        kita adalah dua waktu yang akhirnya menyatu di peraduan saat cahaya senja datang.
+      </p>
+</div>
+<a class="back-button" href="#" onclick="backToMain()">⟵ Kembali</a>
+</div>
+<script>
+  function showKenangan1RewardManual() {
+    const reward = document.getElementById("kenangan1-reward");
+    const overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+</body>
+<div class="kenangan-quiz">
+<label for="q1">1. Apakah kamu mencintai aku?</label>
+<input id="q1" placeholder="Jawaban..." type="text"/>
+<label for="q2">2. Novel yang kamu buat, nama tokohnya siapa saja?</label>
+<input id="q2" placeholder="Jawaban..." type="text"/>
+<button onclick="checkKenangan1Quiz()">Kirim Jawaban</button>
+<div class="quiz-result" id="quiz-result"></div>
+<div class="terimakasih-box" id="thanks-box" style="display:none;">
+  💖 Terimakasih sayang sudah menjawab, jawab yang selanjutnya yaa...
+</div>
+</div>
+</div>
+<div id="halaman2" style="display:none;">
+<body>
+<h1>1 minggu aja:) 📸</h1>
+<div class="frame-container">
+<div class="photo-frame">
+<img alt="Foto 1" src="https://raw.githubusercontent.com/danang2501/rp/main/Capture%209.PNG"/>
+<p>Waktu kita pertama kali kita foto acara sekolah 🌅</p>
+</div>
+<div class="photo-frame">
+<img alt="Foto 2" src="https://raw.githubusercontent.com/danang2501/po/main/c361ffda-72ef-4a0d-ada8-cc0cedc27660.jpeg"/>
+<p>Saat masih main bersembunyi di lorong gelap,pelukan ini mengingatkan ku perjuanag kita 🫂</p>
+</div>
+<div class="photo-frame">
+<img alt="Foto 3" src="https://raw.githubusercontent.com/danang2501/po/main/1ce6d26b-67f5-47ea-9e33-4be7ee908c65.jpeg"/>
+<p>Gereja pertama dan pertama kalinya tau rumah uti dan akung ✨</p>
+</div>
+<div class="photo-frame">
+<img alt="Foto 4" src="https://raw.githubusercontent.com/danang2501/po/main/gambar%205.PNG"/>
+<p>Perkenalan diam-diam dengan mama, deg-degan 💖</p>
+</div>
+<div class="photo-frame">
+<img alt="Foto 5" src="https://github.com/danang2501/ll/raw/main/IMG-20250517-WA0368.jpg"/>
+<p>Wisuda... sedih ninggalin kamu. Tapi semangat ya, aku selalu ada di sana kok:). </p>
+</div>
+<div class="photo-frame">
+<img alt="Foto 6" src="https://github.com/danang2501/ll/raw/main/IMG-20250524-WA0019.jpg"/>
+<p>Hari terakhir sekolah... Terima kasih telah mewarnai akhir SMA-ku, senjaku🌙</p>
+</div>
+</div>
+<button class="back-button" onclick="backToMain()">← Kembali</button>
+<!-- Game Section -->
+<div class="game-section" id="game1"><div class="lives" id="lives1"></div>
+<h2>Tebak makanan favoritku 🍽️</h2>
+<div class="options">
+<button onclick="checkAnswer(1, 'Sate')">Sate</button>
+<button onclick="checkAnswer(1, 'Bakso')">Bakso</button>
+<button onclick="checkAnswer(1, 'Nasi goreng')">Nasi goreng</button>
+<button onclick="checkAnswer(1, 'Mie ayam')">Mie ayam</button>
+</div>
+<div class="result" id="result1"></div>
+<button class="retry-button" id="retry1" onclick="retryGame(1)" style="display:none;">🔄 Coba Lagi</button></div>
+<div class="game-section" id="game2" style="display:none;"><div class="lives" id="lives2"></div>
+<h2>Tebak minuman favoritku 🧋</h2>
+<div class="options">
+<button onclick="checkAnswer(2, 'Kopi')">Kopi</button>
+<button onclick="checkAnswer(2, 'Teh manis')">Teh manis</button>
+<button onclick="checkAnswer(2, 'Matcha')">Matcha</button>
+<button onclick="checkAnswer(2, 'Coklat dingin')">Coklat dingin</button>
+</div>
+<div class="result" id="result2"></div>
+<button class="retry-button" id="retry2" onclick="retryGame(2)" style="display:none;">🔄 Coba Lagi</button></div>
+<div class="game-section" id="game3" style="display:none;"><div class="lives" id="lives3"></div>
+<h2>Siapa pacarku sekarang? ❤️</h2>
+<div class="options">
+<button onclick="checkAnswer(3, 'Melody Drestine P.M.')">Melody Drestine P.M.</button>
+<button onclick="checkAnswer(3, 'Lia Andriani')">Lia Andriani</button>
+<button onclick="checkAnswer(3, 'Sarah Putri')">Sarah Putri</button>
+<button onclick="checkAnswer(3, 'Dinda Cahya')">Dinda Cahya</button>
+</div>
+<div class="result" id="result3"></div>
+<button class="retry-button" id="retry3" onclick="retryGame(3)" style="display:none;">🔄 Coba Lagi</button></div>
+
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+</body>
+</div>
+<style>
+  #halaman2 .frame-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+  }
+
+  #halaman2 .photo-frame {
+    width: 320px;
+    height: 360px;
+    background-color: white;
+    border: 2px solid #fca3cc;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+  }
+
+  #halaman2 .photo-frame img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #ffe3f0;
+    transition: transform 0.3s ease;
+  }
+
+  #halaman2 .photo-frame:hover {
+    transform: scale(1.03);
+    border-color: #ff6f91;
+  }
+
+  #halaman2 .photo-frame img:hover {
+    transform: scale(1.05);
+  }
+
+  #halaman2 .photo-frame p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #444;
+    text-align: center;
+  }
+</style>
+<script>
+    function checkAnswer(game, answer) {
+      let correctAnswers = {
+        1: "Sate",
+        2: "Matcha",
+        3: "Melody Drestine P.M."
+      };
+
+      let resultDiv = document.getElementById("result" + game);
+      if (answer === correctAnswers[game]) {
+        resultDiv.innerHTML = "✅ Benar sekali!";
+
+        // Tampilkan game berikutnya
+        if (game < 3) {
+          document.getElementById("game" + game).style.display = "none";
+          document.getElementById("game" + (game + 1)).style.display = "block";
+        } else {
+          resultDiv.innerHTML += " 💖 Kamu kenal aku banget!";
+        }
+      } else {
+        resultDiv.innerHTML = "❌ Bukan itu, coba lagi ya!";
+      }
+    }
+  </script>
+<script>
+  function showKenangan1RewardManual() {
+    const reward = document.getElementById("kenangan1-reward");
+    const overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+<script>
+let slideIndexKita = 0;
+const slideTrack = document.getElementById("slides-container");
+const dots = document.querySelectorAll("#slideshow-dots span");
+
+function goToSlide(n) {
+  slideIndexKita = n;
+  slideTrack.style.transform = "translateX(" + (-n * 100) + "%)";
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === n);
+  });
+}
+</script><script>
+let currentSlideAuto = 0;
+const slidesAuto = document.querySelectorAll("#photo-slideshow .slide");
+const dotsAuto = document.querySelectorAll("#photo-slideshow .nav-dots span");
+
+function showAutoSlide(n) {
+  slidesAuto.forEach((slide, i) => {
+    slide.style.display = (i === n) ? "flex" : "none";
+    dotsAuto[i].classList.toggle("active", i === n);
+  });
+}
+
+function nextAutoSlide() {
+  currentSlideAuto = (currentSlideAuto + 1) % slidesAuto.length;
+  showAutoSlide(currentSlideAuto);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showAutoSlide(0);
+  setInterval(nextAutoSlide, 5000);
+});
+</script></body>
+<script>
+  function showPage(id) {
+    document.getElementById("main-content").style.display = "none";
+    document.getElementById("halaman1").style.display = "none";
+    document.getElementById("halaman2").style.display = "none";
+    document.getElementById(id).style.display = "block";
+  }
+
+  function backToMain() {
+    document.getElementById("halaman1").style.display = "none";
+    document.getElementById("halaman2").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    document.getElementById("verified-badge").style.display = "block";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("a.button");
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === "Halaman1.html") {
+        link.setAttribute("href", "#");
+        link.setAttribute("onclick", "showPage('halaman1')");
+      }
+      if (href === "Halaman 2.html") {
+        link.setAttribute("href", "#");
+        link.setAttribute("onclick", "showPage('halaman2')");
+      }
+    });
+
+    const backButtons = document.querySelectorAll("a.back-button");
+    backButtons.forEach(btn => {
+      btn.setAttribute("href", "#");
+      btn.setAttribute("onclick", "backToMain()");
+    });
+  });
+</script>
+<script>
+  const lives = {
+    1: 3,
+    2: 3,
+    3: 3
+  };
+
+  function updateLives(game) {
+    const livesDiv = document.getElementById("lives" + game);
+    livesDiv.innerHTML = "❤️".repeat(lives[game]);
+  }
+
+  function checkAnswer(game, answer) {
+    const correctAnswers = {
+      1: "Sate",
+      2: "Matcha",
+      3: "Melody Drestine P.M."
+    };
+
+    const resultDiv = document.getElementById("result" + game);
+    const livesDiv = document.getElementById("lives" + game);
+
+    if (lives[game] <= 0) {
+      resultDiv.innerHTML = "❌ Kamu kehabisan nyawa 😢";
+      return;
+    }
+
+    if (answer === correctAnswers[game]) {
+      resultDiv.innerHTML = "✅ Benar sekali!";
+      if (game < 3) {
+        setTimeout(() => {
+          document.getElementById("game" + game).style.display = "none";
+          document.getElementById("game" + (game + 1)).style.display = "block";
+        }, 800);
+      } else {
+        resultDiv.innerHTML += " 💖 Kamu kenal aku banget!";
+      }
+    } else {
+      lives[game]--;
+      updateLives(game);
+      if (lives[game] <= 0) {
+        resultDiv.innerHTML = "❌ Jawaban salah & nyawamu habis 😢";
+      } else {
+        resultDiv.innerHTML = "❌ Salah. Coba lagi ya!";
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateLives(1);
+    updateLives(2);
+    updateLives(3);
+  });
+</script>
+<script>
+  function retryGame(game) {
+    lives[game] = 3;
+    updateLives(game);
+    document.getElementById("result" + game).innerHTML = "";
+    document.getElementById("retry" + game).style.display = "none";
+  }
+
+  // Update checkAnswer untuk munculkan tombol retry jika kalah
+  function checkAnswer(game, answer) {
+    const correctAnswers = {
+      1: "Sate",
+      2: "Matcha",
+      3: "Melody Drestine P.M."
+    };
+
+    const resultDiv = document.getElementById("result" + game);
+    const livesDiv = document.getElementById("lives" + game);
+
+    if (lives[game] <= 0) {
+      resultDiv.innerHTML = "❌ Kamu kehabisan nyawa 😢";
+      document.getElementById("retry" + game).style.display = "inline-block";
+      return;
+    }
+
+    if (answer === correctAnswers[game]) {
+      resultDiv.innerHTML = "✅ Benar sekali!";
+      if (game < 3) {
+        setTimeout(() => {
+          document.getElementById("game" + game).style.display = "none";
+          document.getElementById("game" + (game + 1)).style.display = "block";
+        }, 800);
+      } else {
+        resultDiv.innerHTML += " 💖 Kamu kenal aku banget!";
+      }
+    } else {
+      lives[game]--;
+      updateLives(game);
+      if (lives[game] <= 0) {
+        resultDiv.innerHTML = "❌ Jawaban salah & nyawamu habis 😢";
+        document.getElementById("retry" + game).style.display = "inline-block";
+      } else {
+        resultDiv.innerHTML = "❌ Salah. Coba lagi ya!";
+      }
+    }
+  }
+</script>
+<div id="popup-win" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+background:#fff0f5; padding:30px 40px; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.3); z-index:9999; text-align:center;">
+<div style="font-size:2em;">❤️ Kamu Menang! ❤️</div>
+<div style="margin-top:15px; font-size:1em;">Kamu berhasil menjawab semua dengan benar 🎉</div>
+<button onclick="closePopup()" style="margin-top:20px; padding:10px 20px; border:none; background:#ff6f91; color:white; font-weight:bold; border-radius:10px; cursor:pointer;">Tutup</button>
+</div>
+<script>
+  function showWinPopup() {
+    document.getElementById("popup-win").style.display = "block";
+  }
+  function closePopup() {
+    document.getElementById("popup-win").style.display = "none";
+  }
+</script>
+<script>
+  function retryGame(game) {
+    lives[game] = 3;
+    updateLives(game);
+    document.getElementById("result" + game).innerHTML = "";
+    document.getElementById("retry" + game).style.display = "none";
+
+    // Reset tampilan ke game pertama (khusus dari halaman2)
+    if (game === 1) {
+      document.getElementById("game1").style.display = "block";
+      document.getElementById("game2").style.display = "none";
+      document.getElementById("game3").style.display = "none";
+    }
+  }
+
+  // Update: panggil popup jika berhasil menyelesaikan game 3
+  function checkAnswer(game, answer) {
+    const correctAnswers = {
+      1: "Sate",
+      2: "Matcha",
+      3: "Melody Drestine P.M."
+    };
+
+    const resultDiv = document.getElementById("result" + game);
+    const livesDiv = document.getElementById("lives" + game);
+
+    if (lives[game] <= 0) {
+      resultDiv.innerHTML = "❌ Kamu kehabisan nyawa 😢";
+      document.getElementById("retry" + game).style.display = "inline-block";
+      return;
+    }
+
+    if (answer === correctAnswers[game]) {
+      resultDiv.innerHTML = "✅ Benar sekali!";
+      if (game < 3) {
+        setTimeout(() => {
+          document.getElementById("game" + game).style.display = "none";
+          document.getElementById("game" + (game + 1)).style.display = "block";
+        }, 800);
+      } else {
+        resultDiv.innerHTML += " 💖 Kamu kenal aku banget!";
+        showWinPopup();
+      }
+    } else {
+      lives[game]--;
+      updateLives(game);
+      if (lives[game] <= 0) {
+        resultDiv.innerHTML = "❌ Jawaban salah & nyawamu habis 😢";
+        document.getElementById("retry" + game).style.display = "inline-block";
+      } else {
+        resultDiv.innerHTML = "❌ Salah. Coba lagi ya!";
+      }
+    }
+  }
+</script>
+<script>
+  function backToMain() {
+    document.getElementById("halaman1").style.display = "none";
+    document.getElementById("halaman2").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    document.getElementById("verified-badge").style.display = "block";
+
+    // Reset kuis ke awal (untuk ulang permainan)
+    document.getElementById("game1").style.display = "block";
+    document.getElementById("game2").style.display = "none";
+    document.getElementById("game3").style.display = "none";
+
+    for (let i = 1; i <= 3; i++) {
+      lives[i] = 3;
+      updateLives(i);
+      document.getElementById("result" + i).innerHTML = "";
+      document.getElementById("retry" + i).style.display = "none";
+    }
+
+    // Tutup pop-up jika masih terbuka
+    const popup = document.getElementById("popup-win");
+    if (popup) popup.style.display = "none";
+  }
+</script>
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+<button onclick="toggleMusic()" style="padding:10px 14px; background:#f06292; color:white; border:none; border-radius:50px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.2); cursor:pointer;">
+    🎵 Musik
+  </button>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bg-music");
+    let toggle = true;
+    window.toggleMusic = function () {
+      if (toggle) {
+        audio.pause();
+        toggle = false;
+        alert("🎵 Musik dijeda");
+      } else {
+        audio.play();
+        toggle = true;
+        alert("🎶 Musik diputar kembali");
+      }
+    }
+  });
+</script>
+<div id="popup-lose" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+background:#fff0f0; padding:30px 40px; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.3); z-index:9999; text-align:center;">
+<div style="font-size:1.8em; color:#d32f2f;">😔 Maaf sayang...</div>
+<div style="margin-top:15px;">Coba lagi ya :)</div>
+<button onclick="closeLosePopup()" style="margin-top:20px; padding:10px 20px; border:none; background:#f06292; color:white; font-weight:bold; border-radius:10px; cursor:pointer;">Tutup</button>
+</div>
+<script>
+  function showLosePopup() {
+    document.getElementById("popup-lose").style.display = "block";
+  }
+  function closeLosePopup() {
+    document.getElementById("popup-lose").style.display = "none";
+  }
+</script>
+<script>
+  function createHeartConfetti() {
+    for (let i = 0; i < 10; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart-confetti";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = (Math.random() * 0.5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    }
+  }
+
+  function checkAnswer(game, answer) {
+    const correctAnswers = {
+      1: "Sate",
+      2: "Matcha",
+      3: "Melody Drestine P.M."
+    };
+
+    const resultDiv = document.getElementById("result" + game);
+    const livesDiv = document.getElementById("lives" + game);
+
+    if (lives[game] <= 0) {
+      resultDiv.innerHTML = "❌ Kamu kehabisan nyawa 😢";
+      document.getElementById("retry" + game).style.display = "inline-block";
+      showLosePopup();
+      return;
+    }
+
+    if (answer === correctAnswers[game]) {
+      resultDiv.innerHTML = "✅ Benar sekali!";
+      if (game < 3) {
+        setTimeout(() => {
+          document.getElementById("game" + game).style.display = "none";
+          document.getElementById("game" + (game + 1)).style.display = "block";
+        }, 800);
+      } else {
+        resultDiv.innerHTML += " 💖 Kamu kenal aku banget!";
+        showWinPopup();
+        createHeartConfetti();
+      }
+    } else {
+      lives[game]--;
+      updateLives(game);
+      livesDiv.classList.add("animated");
+      setTimeout(() => livesDiv.classList.remove("animated"), 400);
+      if (lives[game] <= 0) {
+        resultDiv.innerHTML = "❌ Jawaban salah & nyawamu habis 😢";
+        document.getElementById("retry" + game).style.display = "inline-block";
+        showLosePopup();
+      } else {
+        resultDiv.innerHTML = "❌ Salah. Coba lagi ya!";
+      }
+    }
+  }
+</script>
+<script>
+  let kenangan1Unlocked = false;
+  let firstCorrect = false;
+
+  function lockedMessage() {
+    alert("🔒 Kenangan ini masih terkunci. Selesaikan Kenangan 1 dulu ya!");
+  }
+
+  function normalize(text) {
+    return text.trim().toLowerCase().replace(/\s+/g, " ");
+  }
+
+  function checkKenangan1Quiz() {
+    const ans1 = normalize(document.getElementById("q1").value);
+    const ans2 = normalize(document.getElementById("q2").value);
+    const resultDiv = document.getElementById("quiz-result");
+    const thanksBox = document.getElementById("thanks-box");
+
+    if (ans1 === "iya" && ans2 === "sandyakala dan senja") {
+      resultDiv.innerHTML = "✅ Kamu berhasil membuka kenangan berikutnya 💖";
+      thanksBox.style.display = "none";
+
+      const btn = document.querySelector("a.locked-button");
+      if (btn) {
+        btn.classList.remove("locked-button");
+        btn.setAttribute("href", "#");
+        btn.setAttribute("onclick", "showPage('halaman2')");
+        btn.innerHTML = "Kenangan 2 💫";
+      }
+
+      kenangan1Unlocked = true;
+      showKenangan1RewardManual();
+      showKenangan1RewardManual();
+    } else if (ans1 === "iya" && !firstCorrect) {
+      thanksBox.style.display = "block";
+      resultDiv.innerHTML = "❤️ Jawaban pertama benar! Yuk lanjut ke pertanyaan kedua...";
+      firstCorrect = true;
+    } else {
+      resultDiv.innerHTML = "❌ Jawaban belum tepat… coba lagi ya sayang";
+      thanksBox.style.display = "none";
+    }
+  }
+</script>
+<style>
+  #reward-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 500px;
+    transform: translate(-50%, -50%);
+    background: #fff0f5;
+    border-left: 8px solid #f06292;
+    padding: 30px 20px 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 9999;
+    animation: fadeInReward 1s ease;
+  }
+
+  @keyframes fadeInReward {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  #reward-box h3 {
+    margin-bottom: 15px;
+    color: #d81b60;
+  }
+
+  #reward-box p {
+    color: #444;
+    font-size: 1.05em;
+  }
+
+  #reward-box .close-reward {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #c2185b;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #reward-box .close-reward:hover {
+    color: #880e4f;
+  }
+</style>
+<div id="reward-box">
+<button class="close-reward" onclick="closeReward()">✖</button>
+<h3>💖 Terimakasih Sayang 💖</h3>
+<p>Kamu sudah menjawab semua dengan benar dan kamu mencintaiku ❤️</p>
+</div>
+<script>
+  let rewardGiven = false;
+
+  function showWinPopup() {
+    document.getElementById("popup-win").style.display = "block";
+    createHeartConfetti();
+    rewardGiven = true;
+  }
+
+  function backToMain() {
+    document.getElementById("halaman1").style.display = "none";
+    document.getElementById("halaman2").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    document.getElementById("verified-badge").style.display = "block";
+
+    // Reset quiz game
+    document.getElementById("game1").style.display = "block";
+    document.getElementById("game2").style.display = "none";
+    document.getElementById("game3").style.display = "none";
+
+    for (let i = 1; i <= 3; i++) {
+      lives[i] = 3;
+      updateLives(i);
+      document.getElementById("result" + i).innerHTML = "";
+      document.getElementById("retry" + i).style.display = "none";
+    }
+
+    const popup = document.getElementById("popup-win");
+    if (popup) popup.style.display = "none";
+    const lose = document.getElementById("popup-lose");
+    if (lose) lose.style.display = "none";
+
+    // Tampilkan reward jika sudah menang
+    if (rewardGiven) {
+      document.getElementById("reward-box").style.display = "block";
+    }
+  }
+
+  function closeReward() {
+    document.getElementById("reward-box").style.display = "none";
+  }
+</script>
+<style>
+  #secret-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 9998;
+    animation: flickerLight 3s forwards;
+  }
+
+  @keyframes flickerLight {
+    0%, 20%, 40%, 60%, 80% {
+      background: black;
+    }
+    10%, 30%, 50%, 70%, 90%, 100% {
+      background: transparent;
+    }
+  }
+
+  #secret-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff0f7;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    max-width: 600px;
+    width: 90%;
+    z-index: 9999;
+    animation: fadeIn 1.5s ease;
+  }
+
+  #secret-section h2 {
+    color: #c2185b;
+    margin-bottom: 15px;
+  }
+
+  #secret-section p {
+    font-size: 1em;
+    color: #444;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  .secret-input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .secret-btn {
+    padding: 10px 20px;
+    background: #f06292;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .secret-btn:hover {
+    background: #e91e63;
+  }
+</style>
+<div id="secret-overlay" style="display:none; position:fixed; inset:0; background:black; z-index:9998; animation: softFlicker 4s forwards;"><div style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); font-size:4em; color:white; z-index:9999;">?</div></div>
+<div class="shake-on-start" id="secret-section" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);background: linear-gradient(135deg, #fff0f7, #ffe3ec); padding: 30px 30px; border-radius: 20px;box-shadow: 0 10px 25px rgba(0,0,0,0.25); max-width: 500px; width: 90%; z-index: 9999;animation: fadeIn 1.2s ease;; ">
+<div class="typewriter"><h2>💬 Kamu mencintaiku?</h2></div>
+<input class="secret-input" id="secret-answer" placeholder="Jawaban..." type="text"/>
+<button class="secret-btn" onclick="checkSecretAnswer()">Kirim</button>
+<div id="secret-msg" style="margin-top:15px; color:#c2185b; font-weight:bold;"></div>
+</div>
+<div id="love-letter" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+background:#fffafc; border-left:6px solid #f06292; padding:30px 25px; border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:10000; text-align:center; max-width:600px; width:90%; animation: unfoldScroll 1.8s ease; transform-origin: top center;"><button onclick="document.getElementById('love-letter').style.display='none'" style="position:absolute; top:10px; right:16px; background:none; border:none; font-size:18px; font-weight:bold; color:#d81b60; cursor:pointer;">✖</button>
+<h3 style="color:#c2185b;">💌 Surat Cinta Rahasia 💌</h3>
+<p style="white-space: pre-wrap; color:#4a4a4a; font-size:1em; line-height:1.6; margin-top:15px;">
+Sayang terimakasih kamu telah menyelesaikan pertanyaan ini dan efford mu membuat ini,
+aku sangat mencintaimu dan aku selalu mencintaimu selalu,
+walau aku di masa Kuliah ku aku selalu mengingat mu walau kita beda daerah wilayah dan negara
+aku selalu mengingat mu.
+
+Sayang jangan ada pertengkaran ya, aku mau kita selesaikan langsung.
+Maafkan jika aku masih cemburuan, masih ngelarang-ngelarang kamu, nuduh gak jelas.
+
+Maaf ya sayang... aku begitu karena aku sangat takut kehilanganmu sayang,
+jadi jangan bosan-bosan yaa...
+
+I love you sayang ❤️❤️
+  </p>
+<button class="secret-btn" onclick="document.getElementById('love-letter').style.display='none'" style="margin-top:20px;">Tutup</button>
+</div>
+<audio id="secret-music" loop="" style="display:none;">
+<source src="https://raw.githubusercontent.com/danang2501/gg/main/Acha%20Septriasa%20%26%20Irwansyah%20-%20my%20heart%20(slowed%20down).mp3" type="audio/mpeg"/>
+</audio>
+<script>
+  function closeReward() {
+    document.getElementById("reward-box").style.display = "none";
+    setTimeout(() => {
+      startSecretEnding();
+    }, 1000);
+  }
+</script>
+<script>
+  function playSecretMusic() {
+    const music = document.getElementById("secret-music");
+    if (music) {
+      music.volume = 0.7;
+      music.play();
+    }
+  }
+</script>
+<script>
+  function playSecretMusic() {
+    const music = document.getElementById("secret-music");
+    const loginMusic = document.getElementById("bg-login");
+    if (loginMusic) loginMusic.pause();
+    if (music) {
+      music.volume = 0.7;
+      music.play();
+    }
+  }
+</script>
+<script>
+  let secretStep = 1;
+  let secretTriggered = false;
+
+  function normalize(text) {
+    return text.trim().toLowerCase().replace(/\s+/g, " ");
+  }
+
+  function checkSecretAnswer() {
+    const input = normalize(document.getElementById("secret-answer").value);
+    const msg = document.getElementById("secret-msg");
+
+    if (input === "iya") {
+      if (secretStep < 5) {
+        secretStep++;
+        msg.innerHTML = "💖 Terimakasih sayang, lanjut pertanyaan ke " + secretStep;
+        document.querySelector("#secret-section h2").textContent = "💬 Kamu mencintaiku?";
+        document.getElementById("secret-answer").value = "";
+      } else {
+        msg.innerHTML = "";
+        document.getElementById("secret-section").classList.add("fade-out");
+        document.getElementById("secret-overlay").classList.add("fade-out");
+        setTimeout(() => {
+          document.getElementById("secret-section").style.display = "none";
+          document.getElementById("secret-overlay").style.display = "none";
+          document.getElementById("love-letter").style.display = "block";
+          playSecretMusic();
+          playSecretMusic();
+        }, 2000);
+        
+        setTimeout(() => {
+          document.getElementById("love-letter").style.display = "none";
+          backToMain();
+        }, 12500);
+      }
+    } else {
+      msg.innerHTML = "❌ Jawaban belum tepat ya sayang...";
+    }
+  }
+
+  function startSecretEnding() {
+    if (secretTriggered) return;
+    secretTriggered = true;
+
+    document.getElementById("secret-overlay").style.display = "block";
+
+    const music = document.getElementById("secret-music");
+    if (music) {
+      music.volume = 0.7;
+      music.play();
+    }
+
+    setTimeout(() => {
+      document.getElementById("secret-section").style.display = "block";
+    }, 3000);
+  }
+</script>
+<div id="thanks-after-kenangan1" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+background:#fff0f7; padding:20px 30px; border-left:6px solid #f06292; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.15); 
+z-index:9999; animation: fadeInBox 1.2s ease;">
+  💖 Terimakasih sayang sudah menjawab Kenangan 1, yuk lanjut Kenangan 2!
+</div>
+<script>
+  function showKenangan1Thanks() {
+    const box = document.getElementById("thanks-after-kenangan1");
+    if (box) {
+      box.style.display = "block";
+      setTimeout(() => {
+        box.style.display = "none";
+        showPage('halaman2');
+      }, 4000);
+    }
+  }
+</script>
+<div id="kenangan1-reward" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff5f9; padding:16px 20px; border-radius:14px; border: 3px solid #f06292; box-shadow: 0 6px 20px rgba(0,0,0,0.15); width: 280px; max-width:90%; text-align:center; z-index:9999; animation: fadeInSmall 0.7s ease;">
+<button onclick="closeKenangan1Reward()" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:16px; font-weight:bold; color:#d81b60; cursor:pointer;">✖</button>
+<p style="margin-top:16px; font-size:0.95em; color:#444;">
+        Selamat sayang 💖<br/>kamu telah menyelesaikan pertanyaan,<br/>lanjutkan permainan ya!
+      </p>
+</div>
+<script>
+  function showKenangan1RewardAndContinue() {
+    const reward = document.getElementById("kenangan1-reward");
+    if (reward) {
+      reward.style.display = "block";
+      setTimeout(() => {
+        reward.style.display = "none";
+        showPage('halaman2');
+      }, 4000);
+    }
+  }
+</script>
+<script>
+  function closeKenangan1Reward() {
+    var reward = document.getElementById("kenangan1-reward");
+    var overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "none";
+      overlay.style.display = "none";
+    }
+  }
+</script>
+<style>
+  #kenangan1-return-reward {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff5f9;
+    border: 2px solid #f06292;
+    border-radius: 12px;
+    padding: 12px 18px;
+    width: 280px;
+    max-width: 90%;
+    z-index: 10001;
+    text-align: center;
+    animation: slideDownFade 0.8s ease;
+  }
+
+  @keyframes slideDownFade {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -40%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  #kenangan1-return-reward .close-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #d81b60;
+    cursor: pointer;
+  }
+</style>
+<div class="popup-centered-reward" id="kenangan1-return-reward" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fffefe; border: 3px solid #f06292; border-radius: 16px; padding: 20px 24px; width: 300px; max-width: 90%; z-index: 10002; text-align: center; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); animation: slideDownFadeCenter 0.8s ease;">
+<button class="close-btn" onclick="closeReturnReward(); return false;">✖</button>
+<p style="margin-top: 10px; font-size: 0.92em;">
+    Selamat sayang 💖<br/>kamu telah menyelesaikan pertanyaan,<br/>lanjutkan permainan ya!
+  </p>
+</div>
+<script>
+  function showReturnReward() {
+    const reward = document.getElementById("kenangan1-return-reward");
+    const overlay = document.getElementById("kenangan1-return-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+
+  function closeReturnReward() {
+    const reward = document.getElementById("kenangan1-return-reward");
+    const overlay = document.getElementById("kenangan1-return-overlay");
+    if (reward && overlay) {
+      reward.style.display = "none";
+      overlay.style.display = "none";
+    }
+  }
+</script>
+<script>
+  function showKenangan1RewardManual() {
+    const reward = document.getElementById("kenangan1-reward");
+    const overlay = document.getElementById("kenangan1-overlay");
+    if (reward && overlay) {
+      reward.style.display = "block";
+      overlay.style.display = "block";
+    }
+  }
+</script>
+<script>
+let currentSlide = 0;
+const slides = document.getElementById("slides-container");
+const dots = document.querySelectorAll("#slideshow-dots span");
+
+function goToSlide(n) {
+  currentSlide = n;
+  slides.style.transform = "translateX(-" + (n * 100) + "%)";
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[n].classList.add("active");
+}
+
+// Auto slide
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % 3;
+  goToSlide(currentSlide);
+}, 5000);
+</script>
+<audio id="secretAudio" preload="auto" src="https://raw.githubusercontent.com/danang2501/gg/main/Fallen%20Down.mp3"></audio>
+<script>
+  function closeWarning() {
+    document.getElementById("warning-overlay").style.display = "none";
+    document.getElementById("warning-popup").style.display = "none";
+  }
+</script>
+</html>
